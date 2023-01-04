@@ -3,6 +3,7 @@ package com.tutorial.crud.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,6 +47,13 @@ public Persona createStudent(@RequestBody Persona perso)
     interPersona.savePersona(perso);
 
     return perso;
+}
+
+@DeleteMapping("/persona/borrar/{id}")
+public String borrarStudent(@PathVariable Long id)
+{
+    interPersona.deletePersona(id);
+    return "Persona borrada";
 }
 
 @PostMapping("/main/crear")
