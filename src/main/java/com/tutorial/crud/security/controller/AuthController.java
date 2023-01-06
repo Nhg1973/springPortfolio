@@ -1,15 +1,10 @@
 package com.tutorial.crud.security.controller;
 
-import com.tutorial.crud.dto.Mensaje;
-import com.tutorial.crud.security.dto.JwtDto;
-import com.tutorial.crud.security.dto.LoginUsuario;
-import com.tutorial.crud.security.dto.NuevoUsuario;
-import com.tutorial.crud.security.entity.Rol;
-import com.tutorial.crud.security.entity.Usuario;
-import com.tutorial.crud.security.enums.RolNombre;
-import com.tutorial.crud.security.jwt.JwtProvider;
-import com.tutorial.crud.security.service.RolService;
-import com.tutorial.crud.security.service.UsuarioService;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,11 +15,22 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
-import java.util.HashSet;
-import java.util.Set;
+import com.tutorial.crud.dto.Mensaje;
+import com.tutorial.crud.security.dto.JwtDto;
+import com.tutorial.crud.security.dto.LoginUsuario;
+import com.tutorial.crud.security.dto.NuevoUsuario;
+import com.tutorial.crud.security.entity.Rol;
+import com.tutorial.crud.security.entity.Usuario;
+import com.tutorial.crud.security.enums.RolNombre;
+import com.tutorial.crud.security.jwt.JwtProvider;
+import com.tutorial.crud.security.service.RolService;
+import com.tutorial.crud.security.service.UsuarioService;
 
 @RestController
 @RequestMapping("/auth")
